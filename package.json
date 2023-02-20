@@ -1,0 +1,10 @@
+{
+  "name": "PJRToken",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/paulojr83/PJRToken.git",
+  "license": "MIT",
+  "dependencies": {
+    "solc": "^0.8.18"
+  }
+}
