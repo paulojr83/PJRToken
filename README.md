@@ -1,54 +1,52 @@
-### First, you need to install Solidity and Ethereum.
+<h1> First, you need to install Solidity and Ethereum. </h1>
 
-*Install o Solidity: *
-``npm install -g solc ``
+<b>Install o Solidity:</b>
 
-*Install o Ethereum: *
-``npm install -g ethereumjs-testrpc ``
+<code>npm install -g solc</code>
 
-#### *Create a new file called MyToken.sol with the following code:*
-``
+<b>Install o Ethereum:</b>
+
+<code>npm install -g ethereumjs-testrpc</code>
+
+<h3>Create a new file called MyToken.sol with the following code:</h3>
+
+```
 pragma solidity ^0.8.0;
 
 contract MyToken { 
 
-    // Defina as propriedades do seu token aqui 
-
+    // Set your token properties here
     string public name; 
     string public symbol; 
 
-    // Defina a quantidade de tokens que serão emitidos aqui 
-
+    // Set the amount of tokens to be issued here
     uint256 public totalSupply;
 
-    // Crie uma variável para armazenar os detalhes dos proprietários do token aqui
-
+    // Create a variable to store the token owners details here
     mapping (address => uint256) public balanceOf;
 
-   // Crie uma função para transferir tokens de um endereço para outro aqui
-
+   // Create a function to transfer tokens from one address to another here
    function transfer(address _to, uint256 _value) public { 
 
-        require(balanceOf[msg.sender] >= _value); // Verifique se o remetente tem saldo suficiente para transferir tokens  
+        require(balanceOf[msg.sender] >= _value); //Make sure the sender has enough balance to transfer tokens
 
-        balanceOf[msg.sender] -= _value; // Subtraia os tokens do remetente  
+        balanceOf[msg.sender] -= _value; //Subtract sender tokens  
 
-        balanceOf[_to] += _value; // Adicione os tokens ao destinatário  
+        balanceOf[_to] += _value; //Add tokens to recipient  
    }  
 
-   // Crie uma função para atribuir tokens ao proprietário inicial aqui  
-
+   //Create a function to assign tokens to the initial owner here
    function assign(address _to, uint256 _value) public {    
 
-        require(balanceOf[_to] == 0); // Verifique se o destinatário já possui algum saldo de token    
+        require(balanceOf[_to] == 0); //Check if the recipient already has any token balance  
 
-        balanceOf[_to] = _value; // Atribua os tokens ao destinatário    
+        balanceOf[_to] = _value; //Assign the tokens to the recipient 
 
-        totalSupply += _value; // Aumente a quantidade total de tokens emitidos    
+        totalSupply += _value; //Increase the total amount of issued tokens 
    }    
 }  
-``
+```
 
 *[solc](https://www.npmjs.com/package/solc?activeTab=readme)*
-*Compile the contract using solc:*
-``sol``
+<h3>Compile the contract using solc:</h>
+<code>sol</code>
